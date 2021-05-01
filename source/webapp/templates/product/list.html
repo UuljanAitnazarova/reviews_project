@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 
-{% block content %}
+{% block nav %}
+    <li class="nav-item"><a class="nav-link" href="{% url "product_create" %}">Add product</a></li>
+{% endblock nav %}
 
+{% block content %}
         <div class="container">
         <div class="row" style="margin-top: 30px">
             {% for product in products %}

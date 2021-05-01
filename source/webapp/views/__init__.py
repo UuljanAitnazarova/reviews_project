@@ -1,7 +1,13 @@
 from webapp.views.products import (
     ProductsView,
-    ProductDetailView,
+    ProductReviewsView,
     ProductCreateView,
     ProductDeleteView,
     ProductUpdateView,
+)
+
+from webapp.views.reviews import (
+    ReviewCreateView,
+    ReviewUpdateView,
+    ReviewDeleteView,
 )

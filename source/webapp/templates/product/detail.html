@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 
+{% block nav %}
+    <li class="nav-item"><a class="nav-link" href="{% url "product_update" product.id %}">Update Product</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url "product_delete" product.id %}">Delete Product</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url "review_create" product.id %}">Add Review</a></li>
+{#    <li class="nav-item"><a class="nav-link" href="{% url "review_update" product.review.pk %}">Update Review</a></li>#}
+{#    <li class="nav-item"><a class="nav-link" href="{% url "review_delete" product.review.pk %}">Delete Review</a></li>#}
+{% endblock nav %}
+
+
 {% block content %}
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
@@ -13,11 +22,28 @@
                     <h5 class="card-title">{{ product.name }}</h5>
                                         <p class="card-text"><small class="text-muted">{{ product.get_category_display }}</small></p>
                     <p>{{ product.description }}</p>
-
                 </div>
             </div>
         </div>
     </div>
 
-<br/>
+
+    <h2>Reviews:</h2>
+    {% for review in reviews %}
+        <div class="w-50 mx-auto card text-center border-0" style="margin-top: 40px; background-color: mediumslateblue; color: azure" >
+          <div class="card-body">
+              <h5>{{ review.author }}</h5>
+              <p>{{ review.author.email }}</p>
+              <p>{{ review.text }}</p>
+              <p>{{ review.grade }}</p>
+          </div>
+        </div>
+    {% endfor %}
+
+
+        {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+
 {% endblock content %}

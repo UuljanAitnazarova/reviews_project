@@ -1,8 +1,9 @@
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 from webapp.forms import ProductForm
-from webapp.models import Product
+from webapp.models import Product, Review
 
 
 class ProductsView(ListView):
@@ -13,10 +14,26 @@ class ProductsView(ListView):
     paginate_orphans = 1
 
 
-class ProductDetailView(DetailView):
-    model = Product
+class ProductReviewsView(ListView):
     template_name = 'product/detail.html'
-    context_object_name = 'product'
+    paginate_by = 2
+    paginate_orphans = 1
+    context_object_name = 'reviews'
+
+    def get_queryset(self):
+        self.product = get_object_or_404(Product, pk=self.kwargs['pk'])
+        return Review.objects.filter(product=self.product)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product'] = self.product
+        return context
+
+
+# class ProductDetailView(DetailView):
+#     model = Product
+#     template_name = 'product/detail.html'
+#     context_object_name = 'product'
 
 
 class ProductCreateView(CreateView):
