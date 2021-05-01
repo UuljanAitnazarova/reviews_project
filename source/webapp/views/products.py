@@ -29,14 +29,6 @@ class ProductReviewsView(ListView):
         context = super().get_context_data(**kwargs)
         context['product'] = self.product
         return context
-    
-
-
-
-# class ProductDetailView(DetailView):
-#     model = Product
-#     template_name = 'product/detail.html'
-#     context_object_name = 'product'
 
 
 class ProductCreateView(PermissionRequiredMixin, CreateView):
