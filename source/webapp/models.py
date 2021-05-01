@@ -23,8 +23,8 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    author = models.ForeignKey(get_user_model(), related_name='review', on_delete=models.CASCADE)
-    product = models.ForeignKey('webapp.Product', related_name='review', on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), related_name='reviews', on_delete=models.CASCADE)
+    product = models.ForeignKey('webapp.Product', related_name='reviews', on_delete=models.CASCADE)
     text = models.TextField(max_length=500, blank=False, null=False)
     grade = models.IntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)], blank=False, null=False)
     moderated = models.BooleanField(default=False)

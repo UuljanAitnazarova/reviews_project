@@ -1,0 +1,19 @@
+{% if not reviews %}
+    <h2>No projects</h2>
+{% endif %}
+
+    <h2>Reviews:</h2>
+    {% for review in reviews %}
+        <div class="w-50 mx-auto card text-center border-0" style="margin-top: 40px; background-color: mediumslateblue; color: azure" >
+          <div class="card-body">
+              <h5><a href="{% url 'accounts:detail' review.author.pk %}">{{ review.author }}</a></h5>
+              <p>{{ review.author.email }}</p>
+              <p>{{ review.text }}</p>
+              <p>{{ review.grade }}</p>
+          </div>
+        </div>
+    {% endfor %}
+
+{% if is_paginated %}
+    {% include 'partial/pagination.html' %}
+{% endif %}

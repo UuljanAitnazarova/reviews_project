@@ -20,13 +20,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-{#          {% if user.is_authenticated %}#}
+          {% if user.is_authenticated %}
            {% block nav %}{% endblock nav %}
-{#           <li class="menu-right"><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}" class="nav-link">Выход</a></li>#}
-{#           <li class="menu-right">{{ user.username }}!</li>#}
-{#       {% else %}#}
-{#           <li class="menu-right"><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="nav-link">Вход</a></li>#}
-{#       {% endif %}#}
+              <li class="menu-right" ><a href="{% url 'accounts:detail' user.pk %}" class="nav-link">My profile</a></li>
+           <li class="menu-right"><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}" class="nav-link">Logout</a></li>
+           <li class="menu-right">{{ user.username }}!</li>
+       {% else %}
+           <li class="menu-right"><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}" class="nav-link">Login</a></li>
+              <li class="menu-right"><a href="{% url 'accounts:registration' %}?next={{ request.get_full_path }}" class="nav-link">Registration</a></li>
+       {% endif %}
       </ul>
     </div>
   </div>
