@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block nav %}
-    <li class="nav-item"><a class="nav-link" href="{% url "product_update" product.id %}">Update Product</a></li>
+    {% if perms.webapp.change_product %}
+        <li class="nav-item"><a class="nav-link" href="{% url "product_update" product.id %}">Update Product</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_product %}
     <li class="nav-item"><a class="nav-link" href="{% url "product_delete" product.id %}">Delete Product</a></li>
+    {% endif %}
+    {% if user.is_authenticated %}
     <li class="nav-item"><a class="nav-link" href="{% url "review_create" product.id %}">Add Review</a></li>
-{#    <li class="nav-item"><a class="nav-link" href="{% url "review_update" product.review.pk %}">Update Review</a></li>#}
-{#    <li class="nav-item"><a class="nav-link" href="{% url "review_delete" product.review.pk %}">Delete Review</a></li>#}
+    {% endif %}
 {% endblock nav %}
 
 

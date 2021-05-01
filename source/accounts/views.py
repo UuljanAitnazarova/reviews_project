@@ -47,7 +47,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     template_name = 'user_update.html'
     form_class = UserUpdateForm

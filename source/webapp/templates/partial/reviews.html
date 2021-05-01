@@ -1,8 +1,7 @@
 {% if not reviews %}
-    <h2>No projects</h2>
+    <h2>No reviews</h2>
 {% endif %}
 
-    <h2>Reviews:</h2>
     {% for review in reviews %}
         <div class="w-50 mx-auto card text-center border-0" style="margin-top: 40px; background-color: mediumslateblue; color: azure" >
           <div class="card-body">
@@ -10,6 +9,14 @@
               <p>{{ review.author.email }}</p>
               <p>{{ review.text }}</p>
               <p>{{ review.grade }}</p>
+
+              {% if perms.webapp.change_review or user == review.author %}
+                    <a href="{% url 'review_update' review.pk %}"><button>Update</button></a>
+              {% endif %}
+
+                {% if perms.webapp.delete_review or user == review.author %}
+                    <a href="{% url 'review_delete' review.pk %}"><button>Delete</button></a>
+                {% endif %}
           </div>
         </div>
     {% endfor %}
