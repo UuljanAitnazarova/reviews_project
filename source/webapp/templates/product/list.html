@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="container">
+        <div class="row" style="margin-top: 30px">
+            {% for product in products %}
+                <div class="col-lg-3 mb-4">
+                    <div class="card h-100" >
+                        {% if product.image %}
+                            <img class="image" src="{{ product.image.url }}" width="250" height="250" alt="image">
+                            {% else %}
+                            <img class="image" src="/uploads/pictures/blank-img.jpeg" width="250" height="250" alt="image">
+                        {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-decoration: none; "><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h5>
+                        <p class="card-text">Category: {{ product.get_category_display }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
+
+{% endblock content %}

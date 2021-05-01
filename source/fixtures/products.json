@@ -1,0 +1,82 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 1,
+  "fields": {
+    "name": "Jenny's winter gloves",
+    "category": "gloves",
+    "description": "Cotton gloves. Polyester lining. Color- brown.",
+    "image": "pictures/gloves_1.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 2,
+  "fields": {
+    "name": "Jenny's winter gloves for you",
+    "category": "gloves",
+    "description": "Jenny's winter gloves for you",
+    "image": "pictures/gloves_3.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "Jenny's winter gloves for you",
+    "category": "gloves",
+    "description": "Jenny's winter gloves for you. Color: black.",
+    "image": "pictures/gloves_2.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Jenny's high heel shoes",
+    "category": "shoes",
+    "description": "Jenny's high heel shoes",
+    "image": "pictures/shoes_1.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Jenny's white sneakers",
+    "category": "shoes",
+    "description": "Jenny's white sneakers",
+    "image": "pictures/shoes_2.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Jenny's scarves - one",
+    "category": "scarves",
+    "description": "Jenny's scarves - one",
+    "image": "pictures/scarves_1.jpg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "Jenny's scarves - two",
+    "category": "scarves",
+    "description": "Jenny's scarves - two",
+    "image": "pictures/scarves_2.jpeg"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 8,
+  "fields": {
+    "name": "Jenny's scarves - three",
+    "category": "scarves",
+    "description": "Jenny's scarves - three",
+    "image": "pictures/scarves_3.jpeg"
+  }
+}
+]
